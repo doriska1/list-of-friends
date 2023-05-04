@@ -1,0 +1,22 @@
+<div id="friends" class="container-fluid"> 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Surname</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @friends.each do |friend| %>
+        <tr>
+          <td> <%= friend.name %> </td>
+          <td> <%= friend.surname %> </td>
+          <td> <%= link_to "Show this friend", friend, class: "btn btn-primary" %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+

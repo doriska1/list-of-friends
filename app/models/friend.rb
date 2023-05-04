@@ -11,4 +11,8 @@
 #  updated_at   :datetime         not null
 #
 class Friend < ApplicationRecord
+    validates :name, presence: true, length: { minimum:3, maximum:15}
+    validates :surname, presence: true, length: { minimum: 3, maximum: 15}
+    validates :email, presence: true
+    validates :phone_number, presence: true, length: { is: 9 }
 end
