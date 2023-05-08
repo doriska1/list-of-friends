@@ -31,6 +31,11 @@
     <%= form.text_field :phone_number, class: "form-control" %>
   </div>
 
+  <div class="mb-3">
+    <%= form.label :place_of_knowing, style: "display: block", class:"form-label" %>
+    <%= form.select :place_of_knowing, Friend.place_of_knowings.keys, class: "form-select" %>
+  </div>
+
   <div >
     <%= form.submit class: "btn btn-success" %>
   </div>

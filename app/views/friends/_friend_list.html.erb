@@ -4,6 +4,7 @@
       <tr>
         <th>Name</th>
         <th>Surname</th>
+        <th>Place of knowing</th>
       </tr>
     </thead>
     <tbody>
@@ -11,6 +12,7 @@
         <tr>
           <td> <%= friend.name %> </td>
           <td> <%= friend.surname %> </td>
+          <td> <%= friend.place_of_knowing %> </td>
           <td> <%= link_to "Show this friend", friend, class: "btn btn-primary" %> </td>
         </tr>
       <% end %>

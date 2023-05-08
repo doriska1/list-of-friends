@@ -57,6 +57,22 @@ class FriendsController < ApplicationController
     end
   end
 
+  def work
+    @friends = Friend.work
+  end
+
+  def school
+    @friends = Friend.school
+  end
+
+  def childhood
+    @friends = Friend.childhood
+  end
+
+  def college
+    @friends = Friend.college
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_friend
@@ -65,6 +81,6 @@ class FriendsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def friend_params
-      params.require(:friend).permit(:name, :surname, :email, :phone_number)
+      params.require(:friend).permit(:name, :surname, :email, :phone_number, :place_of_knowing)
     end
 end
