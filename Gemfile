@@ -36,10 +36,11 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails'
-  gem 'rspec-rails', '~> 6.0.0'
   gem 'rails-controller-testing'
-  gem 'shoulda-matchers', '~> 5.0'
-  gem 'capybara'
+  gem 'rspec-rails', '~> 6.0', '>= 6.0.2'
+  gem 'shoulda-matchers', '~> 5.3'
+  gem 'simplecov'
 end
