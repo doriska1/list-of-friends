@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     collection do
       get :school
       get :work
-      get :college 
+      get :college
       get :childhood
     end
   end

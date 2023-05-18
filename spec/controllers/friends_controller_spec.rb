@@ -34,57 +34,57 @@ describe FriendsController, type: :controller do
   end
 
   describe 'POST #create' do
-    let(:friend) { build(:friend) }
-
     subject(:create_request) { post :create, params: { friend: friend.attributes } }
+
+    let(:friend) { build(:friend) }
 
     it do
       create_request
       expect(response).to have_http_status(:found)
-      #is_expected.to respond_with(:found)
+      # is_expected.to respond_with(:found)
     end
 
     it do
       create_request
-      is_expected.to redirect_to(friend_path(Friend.last))
+      expect(create_request).to redirect_to(friend_path(Friend.last))
     end
 
     it { expect { create_request }.to change(Friend, :count).by(1) }
   end
 
   describe 'PUT #update' do
+    subject(:update_request) { put :update, params: { id: friend.id, friend: new_attributes } }
+
     let(:friend) { create(:friend) }
     let(:new_attributes) { attributes_for(:friend) }
 
-    subject(:update_request) { put :update, params: { id: friend.id, friend: new_attributes } }
-
     it do
       update_request
-      expect(response).to have_http_status(302)
-      #is_expected.to respond_with(302)
+      expect(response).to have_http_status(:found)
+      # is_expected.to respond_with(302)
     end
 
     it do
       update_request
-      is_expected.to redirect_to(friend_path(friend))
+      expect(update_request).to redirect_to(friend_path(friend))
     end
 
     it { expect { update_request }.to change { friend.reload.name }.to(new_attributes[:name]) }
   end
 
   describe 'DELETE #destroy' do
-    let!(:friend) { create(:friend) }
+    subject(:destroy_request) { delete :destroy, params: { id: friend.id } }
 
-    subject(:destroy_request) { delete :destroy, params: { id: friend.id} }
+    let!(:friend) { create(:friend) }
 
     it do
       destroy_request
-      expect(response).to have_http_status(302)
+      expect(response).to have_http_status(:found)
     end
 
     it do
       destroy_request
-      is_expected.to redirect_to(friends_path)
+      expect(destroy_request).to redirect_to(friends_path)
     end
 
     it { expect { destroy_request }.to change(Friend, :count).by(-1) }
